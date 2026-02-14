@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:Arial;
+  color:white;
+}
+
+.box{
+  background:rgba(0,0,0,0.35);
+  padding:30px;
+  border-radius:20px;
+  width:85%;
+  max-width:500px;
+  text-align:center;
+}
+
+img{
+  width:100%;
+  border-radius:15px;
+  margin-top:10px;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  background:white;
+  color:#ff4d6d;
+  cursor:pointer;
+}
+
+#thankyou{
+  margin-top:20px;
+  font-size:18px;
+  color:#ffe4ec;
+  display:none;
+}
+
+.fade{
+  animation:fade 0.8s;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Hey My Love ❤️</h2>
+
+  <div id="content" class="fade">
+    Click below… I made something special just for you 🌸
+  </div>
+
+  <button id="btn">Show Surprise</button>
+
+  <div id="thankyou">
+    🌸 Thank you for being the most beautiful part of my life.
+    Every smile of yours is my happiness, and this little surprise
+    is only a small piece of how deeply I love you ❤️
+  </div>
+</div>
+
+<script>
+
+let step = 0;
+
+/* 👉 Put your real photo names here */
+let steps = [
+
+  `<img src="pic1.jpeg">
+   <p>🌷 Your beauty is not just in your smile, but in the way you light up my world every single day.</p>`,
+
+  `<img src="pic2.jpeg">
+   <p>💖 The kindness and care you show me makes me feel safe, loved, and truly lucky to have you.</p>`,
+
+  `<img src="pic3.jpeg">
+   <p>✨ Every moment we spend together turns into a memory full of laughter and happiness.</p>`,
+
+  `<img src="pic4.jpeg">
+   <p>🌙 I see a beautiful future in your eyes — a journey where we grow, dream, and stay happy together.</p>`,
+
+  `<p style="font-size:20px">
+  My love, you are the calm in my chaos and the warmth in my heart.
+  I promise to stand beside you, hold your hand through every chapter,
+  and never let go no matter where life takes us.
+  Until my last breath, I will choose you — again and again,
+  because loving you is the most beautiful part of my life. ❤️
+  </p>`
+];
+
+document.getElementById("btn").addEventListener("click",function(){
+
+  if(step < steps.length){
+
+    let content = document.getElementById("content");
+    content.classList.remove("fade");
+    void content.offsetWidth;
+    content.innerHTML = steps[step];
+    content.classList.add("fade");
+
+    step++;
+
+    if(step === steps.length){
+      this.style.display="none";
+      document.getElementById("thankyou").style.display="block";
+    }else{
+      this.innerText = "Next ❤️";
+    }
+  }
+
+});
+</script>
+
+</body>
+</html>
