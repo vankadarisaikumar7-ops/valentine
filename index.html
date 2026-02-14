@@ -63,7 +63,8 @@ button{
 <body>
 
 <div class="box">
-  <h2>Hey My Love ❤️</h2>
+  <!-- ✅ Title now dynamic -->
+  <h2 id="title">Hey My Love ❤️</h2>
 
   <div id="content" class="fade">
     Click below… I made something special just for you 🌸
@@ -75,13 +76,22 @@ button{
     🌸 Thank you for being the most beautiful part of my life.
     Every smile of yours is my happiness, and this little surprise
     is only a small piece of how deeply I love you ❤️. My AADONGUUUUU 😉.
-                with love... nee mogongu ❤️❤️❤️
+    with love... nee mogongu ❤️❤️❤️
   </div>
 </div>
 
 <script>
 
 let step = 0;
+
+/* ❤️ Your Nicknames (Edit anytime) */
+let names = [
+  "Hey Bujju ❤️",
+  "Hello kannoda 💖",
+  "My Cutie 🌸",
+  "nuvvu naaa 😉",
+  "My Forever Love ❤️"
+];
 
 /* 👉 Put your real photo names here */
 let steps = [
@@ -112,9 +122,15 @@ document.getElementById("btn").addEventListener("click",function(){
   if(step < steps.length){
 
     let content = document.getElementById("content");
+
     content.classList.remove("fade");
     void content.offsetWidth;
+
     content.innerHTML = steps[step];
+
+    /* ✅ Change nickname title each step */
+    document.getElementById("title").innerText = names[step];
+
     content.classList.add("fade");
 
     step++;
